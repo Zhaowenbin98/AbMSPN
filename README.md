@@ -3,7 +3,7 @@
 End-to-end pipeline for predicting binding affinity changes (ΔΔG) on antibody–antigen complexes. The workflow builds atom/residue-level graphs from PDB structures, extracts structural and sequence features (optional ESM/PSSM), and trains GNN models with contrastive WT/MT learning.
 
 **Code repository:** `AbMSPN/` (this repo)  
-**Companion data archive (Zenodo):** `AbMSPN_Data/` — raw structures, FoldX outputs, and trained model checkpoints (~13 GB). Download separately and place next to the code repo (e.g. `/root/AbMSPN_Data`).
+**Companion data archive (Zenodo):** [`AbMSPN_Data`](https://doi.org/10.5281/zenodo.21319781) — raw structures, FoldX outputs, and trained model checkpoints (~13 GB). Download separately and place next to the code repo (e.g. `/root/AbMSPN_Data`).
 
 ![AbMSPN pipeline](picture.jpg)
 
@@ -78,6 +78,9 @@ Each dataset folder contains `predictions_all_folds.csv` and `metrics_summary.cs
 ---
 
 ## Companion Dataset (Zenodo): AbMSPN_Data
+
+**DOI (all versions):** [10.5281/zenodo.21319781](https://doi.org/10.5281/zenodo.21319781)  
+This DOI cites all versions of the dataset and always resolves to the latest release.
 
 Archive uploaded to Zenodo alongside this repository. Typical layout after download:
 
@@ -516,6 +519,16 @@ Pre-computed benchmark metrics: `Results/AbMSPN_Resluts/Dual/CV10_S645/metrics_s
 | ESM not used in training | Set `Cfg.use_esm = True` and build graphs with ESM cache enabled |
 | `predict_csv.py` wrong split | Match `Cfg.split_json_path` to the dataset you trained on |
 | Unexpected M1101 sequential training | Default `root_dir` no longer contains `M1101`; use `--force-dual` to enable |
+
+---
+
+## Citation
+
+If you use the **AbMSPN_Data** companion archive, please cite:
+
+> AbMSPN_Data: Companion dataset for antibody–antigen ΔΔG prediction. Zenodo. https://doi.org/10.5281/zenodo.21319781
+
+**Cite all versions:** DOI [10.5281/zenodo.21319781](https://doi.org/10.5281/zenodo.21319781) represents all versions of this dataset and will always resolve to the latest one. See [Zenodo versioning](https://help.zenodo.org/docs/citations/).
 
 ---
 
