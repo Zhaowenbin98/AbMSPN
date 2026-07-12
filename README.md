@@ -30,7 +30,7 @@ AbMSPN_Data/             # companion Zenodo archive (download separately)
 |---------------------------|-----------------------------|----------------|
 | `Model/csv/Pt_Mapping_*.csv` | M1101 PDBs (`M1101-Ab-Bind/`) | Graph `.pt` files (`Cfg.root_dir`) |
 | `Model/jsonl/*.jsonl` (CV splits) | S1131 PDB + FoldX (`S1131-SKEMPI/`) | ESM2 weights, UniRef90 BLAST DB |
-| `Data/AB-Bind_experimental_data.csv` | Trained checkpoints (`Model_params/`) | S645 raw PDB (not in archive) |
+| `Data/AB-Bind_experimental_data.csv` | Trained checkpoints (`Model_params/`) | |
 | `Results/**/predictions_*.csv` | | |
 | All Python scripts | | |
 
@@ -40,8 +40,8 @@ Training still requires **graph `.pt` files** (build locally from Zenodo PDB/Fol
 
 | File | Purpose |
 |------|---------|
-| `build_graphs_S1131.py` | Build WT/MT graph pairs for S1131 (CLI path overrides) |
-| `build_graphs_M1101.py` | Build graphs for M1101 / AB-Bind (paths in script header) |
+| `build_graphs_S1131.py` | Build WT/MT graph pairs for S1131 |
+| `build_graphs_M1101.py` | Build graphs for M1101 / AB-Bind |
 | `graph_builder_mutation.py` | Core graph construction (atom/residue graphs, WT/MT pairs) |
 | `features.py` | Feature extraction (atom/residue, ASA, PSSM, optional ESM) |
 | `pdb_processor.py` | PDB parsing helpers |
@@ -270,7 +270,7 @@ class Cfg:
 | S1131 | `Model/csv/Pt_Mapping_S1131.csv` | `Model/jsonl/CV10_S1131.jsonl` | 10 |
 | M1101 | `Model/csv/Pt_Mapping_M1101.csv` | `Model/jsonl/CV5_M1101.jsonl` | 5 |
 | DeepMutant | — | `Model/jsonl/DeepMutant.jsonl` | — |
-| Seq-identity split | — | `Model/jsonl/SquenceIdentity_S645.jsonl` | 10 |
+| Seq-identity split | — | `Model/jsonl/SquenceIdentity_S645.jsonl` | — |
 
 `train.py --method e2e-cv` runs **M1101 sequential training (S645 → M1101)** automatically when `"M1101"` appears in `Cfg.root_dir`, or when `--force-dual` is set.
 
